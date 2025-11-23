@@ -42,11 +42,11 @@ function createParticles() {
 
         const color = new THREE.Color();
         if (Math.random() > 0.7) {
-            color.setHSL(0.58, 0.85, 0.65);
+            color.setHSL(0.29, 0.45, 0.55);
         } else if (Math.random() > 0.4) {
-            color.setHSL(0.6, 0.9, 0.7);
+            color.setHSL(0.32, 0.5, 0.6);
         } else {
-            color.setHSL(0.55, 0.75, 0.6);
+            color.setHSL(0.27, 0.4, 0.5);
         }
         colors.push(color.r, color.g, color.b);
     }
@@ -55,10 +55,10 @@ function createParticles() {
     geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 2.5,
+        size: 2.8,
         vertexColors: true,
         transparent: true,
-        opacity: 0.7,
+        opacity: 0.65,
         blending: THREE.AdditiveBlending
     });
 
@@ -86,7 +86,7 @@ function createLines() {
         vertices.push(x2, y2, z2);
 
         const color = new THREE.Color();
-        color.setHSL(0.57 + Math.random() * 0.08, 0.75, 0.55);
+        color.setHSL(0.29 + Math.random() * 0.06, 0.45, 0.5);
         colors.push(color.r, color.g, color.b);
         colors.push(color.r, color.g, color.b);
     }
@@ -117,7 +117,7 @@ function createFloatingNumbers() {
     for (let i = 0; i < numberCount; i++) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.font = 'Bold 22px Arial';
-        context.fillStyle = Math.random() > 0.5 ? '#60a5fa' : '#3b82f6';
+        context.fillStyle = Math.random() > 0.5 ? '#90c98b' : '#6fb368';
 
         const stock = stocks[Math.floor(Math.random() * stocks.length)];
         const change = (Math.random() * 10 - 5).toFixed(2);
@@ -128,7 +128,7 @@ function createFloatingNumbers() {
         const material = new THREE.SpriteMaterial({
             map: texture,
             transparent: true,
-            opacity: 0.5,
+            opacity: 0.45,
             blending: THREE.AdditiveBlending
         });
 
