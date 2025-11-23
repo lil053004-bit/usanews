@@ -41,10 +41,12 @@ function createParticles() {
         vertices.push(x, y, z);
 
         const color = new THREE.Color();
-        if (Math.random() > 0.5) {
-            color.setHSL(0.55, 1, 0.6);
+        if (Math.random() > 0.7) {
+            color.setHSL(0.58, 0.85, 0.65);
+        } else if (Math.random() > 0.4) {
+            color.setHSL(0.6, 0.9, 0.7);
         } else {
-            color.setHSL(0.6, 1, 0.7);
+            color.setHSL(0.55, 0.75, 0.6);
         }
         colors.push(color.r, color.g, color.b);
     }
@@ -53,10 +55,10 @@ function createParticles() {
     geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 3,
+        size: 2.5,
         vertexColors: true,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.7,
         blending: THREE.AdditiveBlending
     });
 
@@ -84,7 +86,7 @@ function createLines() {
         vertices.push(x2, y2, z2);
 
         const color = new THREE.Color();
-        color.setHSL(0.55 + Math.random() * 0.1, 0.8, 0.5);
+        color.setHSL(0.57 + Math.random() * 0.08, 0.75, 0.55);
         colors.push(color.r, color.g, color.b);
         colors.push(color.r, color.g, color.b);
     }
@@ -95,7 +97,7 @@ function createLines() {
     const material = new THREE.LineBasicMaterial({
         vertexColors: true,
         transparent: true,
-        opacity: 0.3,
+        opacity: 0.25,
         blending: THREE.AdditiveBlending
     });
 
@@ -114,8 +116,8 @@ function createFloatingNumbers() {
 
     for (let i = 0; i < numberCount; i++) {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = 'Bold 24px Arial';
-        context.fillStyle = Math.random() > 0.5 ? '#00ff88' : '#ff4444';
+        context.font = 'Bold 22px Arial';
+        context.fillStyle = Math.random() > 0.5 ? '#60a5fa' : '#3b82f6';
 
         const stock = stocks[Math.floor(Math.random() * stocks.length)];
         const change = (Math.random() * 10 - 5).toFixed(2);
@@ -126,7 +128,7 @@ function createFloatingNumbers() {
         const material = new THREE.SpriteMaterial({
             map: texture,
             transparent: true,
-            opacity: 0.6,
+            opacity: 0.5,
             blending: THREE.AdditiveBlending
         });
 
